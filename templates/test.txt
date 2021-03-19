@@ -1,0 +1,5 @@
+Todo App
+
+{% for todo in todo_list %}
+{{ todo.id }} | {{ todo.title }}
+{% endfor %}
