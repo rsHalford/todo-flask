@@ -3,6 +3,7 @@
   ██║  ██║ ██║██║ ██║██║ ██║
   ██║  ╚████╔╝█████╔╝╚████╔╝
   ╚═╝   ╚═══╝ ╚════╝  ╚═══╝
-
-id | todo
-{% for todo in todo_list %}{{ todo.id }}  | {{ todo.title }}{% endfor %}
+{% for todo in todo_list %}{{ todo.title }}
+{% endfor %}
+<!-- curl -X POST -F title=todo http://127.0.0.1/a -->
+<!-- curl http://127.0.0.1/d/id -->

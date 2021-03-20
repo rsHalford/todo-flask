@@ -17,7 +17,7 @@ class Todo(db.Model):
 @app.route('/')
 def index():
     todo_list = Todo.query.all()
-    response = make_response(render_template('test.html', todo_list=todo_list))
+    response = make_response(render_template('todo_list.html', todo_list=todo_list))
     response.mimetype = 'text/plain'
     return response
 
