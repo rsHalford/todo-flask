@@ -1,0 +1,18 @@
+██████╗ ████╗ █████╗  ████╗ 
+╚═██╔═╝██╔═██╗██╔═██╗██╔═██╗
+  ██║  ██║ ██║██║ ██║██║ ██║
+  ██║  ╚████╔╝█████╔╝╚████╔╝
+  ╚═╝   ╚═══╝ ╚════╝  ╚═══╝
+This is the about page for the Todo App.
+
+
+<!-- TODO API ENDPOINT EXAMPLES -->
+<!-- curl -u "admin:secret" - to access API endpoints -->
+<!-- curl "http://127.0.0.1:5000/api/v1/todo" - this produces a list of all todos -->
+<!-- curl "http://127.0.0.1:5000/api/v1/todo/<id>" - this gets a todo matching the id -->
+<!-- curl -X POST -H "Content-Type: application/json" -d '{"title":"title","body":"body"}' "http://127.0.0.1:5000/api/v1/todo - this creates a new todo -->
+<!-- curl -X POST -H "Content-Type: application/json" -d '{"title":"new title","body":"new body"}' "http://127.0.0.1:5000/api/v1/todo/<id> - this updates the todo with a matching id, with the provided title and/or body -->
+<!-- curl -X DELETE "http://127.0.0.1:5000/api/v1/todo/<id>" - this deletes the todo matching the id -->
+
+<!-- curl -u "admin:secret" "http://127.0.0.1:5000/api/v1/todo" | jq '.todos[]' - format json using jq -->
+<!-- curl -u "admin:secret" "http://127.0.0.1:5000/api/v1/todo" | jq -r '.todos[] | .title, .body' - raw output of each object key's value -->
