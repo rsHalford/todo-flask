@@ -7,9 +7,11 @@ class Config(object):
 
 
 class ProductionConfig(Config):
+    DEBUG = False
+    TESTING = False
     SQLALCHEMY_DATABASE_URI = 'sqlite:///../todos.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    pass
+    SESSION_COOKIE_SECURE = True
 
 
 class DevelopmentConfig(Config):
