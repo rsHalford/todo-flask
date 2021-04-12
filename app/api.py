@@ -1,11 +1,11 @@
 from app import app, db
 from flask import request, make_response, jsonify
 from app.models import Todo, TodoSchema
-#from app.auth import requires_auth
+from app.auth import requires_auth
 
 
 @app.route('/api/v1/todo', methods=['POST'])
-#@requires_auth
+@requires_auth
 def create_todo():
     data = request.get_json()
     todo_schema = TodoSchema()
@@ -15,7 +15,7 @@ def create_todo():
 
 
 @app.route('/api/v1/todo', methods=['GET'])
-#@requires_auth
+@requires_auth
 def get_all_todos():
     get_todos = Todo.query.all()
     todo_schema = TodoSchema(many=True)
@@ -24,7 +24,7 @@ def get_all_todos():
 
 
 @app.route('/api/v1/todo/<id>', methods=['GET'])
-#@requires_auth
+@requires_auth
 def get_todo_by_id(id):
     get_todo = Todo.query.get(id)
     todo_schema = TodoSchema()
@@ -33,7 +33,7 @@ def get_todo_by_id(id):
 
 
 @app.route('/api/v1/todo/<id>', methods=['PUT'])
-#@requires_auth
+@requires_auth
 def update_todo_by_id(id):
     data = request.get_json()
     get_todo = Todo.query.get(id)
@@ -49,7 +49,7 @@ def update_todo_by_id(id):
 
 
 @app.route('/api/v1/todo/<id>', methods=['DELETE'])
-#@requires_auth
+@requires_auth
 def delete_todo_by_id(id):
     get_todo = Todo.query.get(id)
     db.session.delete(get_todo)

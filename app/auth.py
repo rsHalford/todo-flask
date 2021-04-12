@@ -1,15 +1,15 @@
-#from flask import Response, request
-#from functools import wraps
-#from api_access import USERNAME, PASSWORD
-#
-#def check_auth(username, password):
-#    return username == USERNAME and password == PASSWORD
-#
-#def requires_auth(f):
-#    @wraps(f)
-#    def wrapper(*args, **kwargs):
-#        auth = request.authorization
-#        if not auth.username or not auth.password or not check_auth(auth.username, auth.password):
-#            return Response('Login', 401, {'WWW-Authenticate': 'Basic realm="Login"'})
-#        return f(*args, **kwargs)
-#    return wrapper
+from flask import Response, request
+from functools import wraps
+from api_access import ACCESS_TOKEN
+
+def check_auth(access_token):
+    return access_token == ACCESS_TOKEN
+
+def requires_auth(f):
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        auth = request.authorization
+        if not auth.access_token or not check_auth(auth.access_token):
+            return Response('Login', 401, {'WWW-Authenticate': 'Basic realm="Login"'})
+        return f(*args, **kwargs)
+    return wrapper
